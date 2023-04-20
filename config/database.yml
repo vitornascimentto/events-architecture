@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= ENV['DB_POOL'] || ENV['MAX_THREADS'] || 5 %>
+  reaping_frequency: <%= ENV['DB_REAP_FREQ'] || 10 %>
+  username: nascimento
+  host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
+  template: template0
+
+development:
+  <<: *default
+  database: events_architecture_development
+
+test: &test
+  <<: *default
+  database: events_architecture_test
+  min_messages: WARNING
+
+# test:
+#   <<: *default
+#   database: events_architecture_test
+
+# production:
+#   <<: *default
+#   database: events_architecture_production
+#   username: todo_list
+#   password: <%= ENV["TODO_LIST_DATABASE_PASSWORD"] %>
