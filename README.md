@@ -1,4 +1,4 @@
-# Events Architecture
+# Event Architecture
 
 * Ruby version - 2.7.4
 
